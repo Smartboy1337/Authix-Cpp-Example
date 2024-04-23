@@ -1,0 +1,16 @@
+﻿  Authix.cpp
+  You may be using a weak algorithm that has been retained for backwards compatibility. Please '#define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1' before including this .h file and prepend the class name with 'Weak::' to remove this warning.
+C:\Users\ChPc\Documents\New folder\AuthixExample\Auth\Decryption.hpp(58,31): warning C4101: 'ex': unreferenced local variable
+  (compiling source file 'Auth/Authix.cpp')
+  
+C:\Users\ChPc\Documents\New folder\AuthixExample\Auth\Decryption.hpp(193,29): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  (compiling source file 'Auth/Authix.cpp')
+  
+  main.cpp
+C:\Users\ChPc\Documents\New folder\AuthixExample\MainFiles\main.cpp(101,16): warning C4129: 'L': unrecognized character escape sequence
+  Generating code
+  91 of 2571 functions ( 3.5%) were compiled, the rest were copied from previous compilation.
+    73 functions were new in current compilation
+    5 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  AuthixExample.vcxproj -> C:\Users\ChPc\Documents\New folder\x64\Release\AuthixExample.exe
