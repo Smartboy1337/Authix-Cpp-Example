@@ -41,10 +41,10 @@ Join our Discord server to report any bugs or share your suggestions promptly: [
 Go to your dash and find this information:
 
 ```cmake
-std::string PanelURL = "https://example.authix.win/"; //dashboard link
-std::string OwnerUUID = "00000000-0000-0000-0000-0000000000000"; //OwnerUUID can befound on your dashboard
-std::string AppName = "example"; //Application name
-std::string AppSecretKey = "0000000000000000000000000000000000000000000000000000000000000000"; //Application secret key
+std::string PanelURL = xorstr_("https://panel.authix.cc/"); //Don't change that
+std::string OwnerUUID = xorstr_("00000000000-0000-0000-0000-000000000000000"); //Can be found on your Dashboard
+std::string AppName = xorstr_("Example"); //The name of your application, can be found on your Dashboard
+std::string AppSecretKey = xorstr_("0000000000000000000000000000000000000000000000000000000000000000"); // AppSecret can be found on your Dashboard
 ```
 
 Replace the example data in the file authix.cpp with your information from the dashboard.
