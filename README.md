@@ -49,6 +49,8 @@ std::string AppSecretKey = xorstr_("00000000000000000000000000000000000000000000
 
 Replace the example data in the file authix.cpp with your information from the dashboard.
 
-### UNZIP Cryptopp.rar IN AuthixCppExample-main\Authix-Cpp-Example\AuthixExample\Libs !!!
+### UNZIP Cryptopp.rar IN AuthixCppExample-main\AuthixExample\Libs !!!
+### UNZIP Dlls.rar IN AuthixCppExample-main\x64\Release !!!
+
 Tutorial(Old Example but similar):
 https://youtu.be/3RaMe0WluEE
