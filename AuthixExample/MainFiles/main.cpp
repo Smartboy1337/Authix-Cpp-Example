@@ -1,10 +1,11 @@
 #include "main.hpp"
-#include "../Auth/xorstr.hpp"
 // Put the solution config on Release!
 
 int main()
 {
+	//
 	// Init Session
+	//
 	std::string InitSessionResponse = Authix::InitSession();
 
 	bool InitSessionSuccess;
@@ -38,7 +39,9 @@ int main()
 	}
 
 
+	//
 	// Decrypt Data Returned From Init Session
+	//
 	std::string InitSessionDecryptedData = Authix::DecryptInitData(InitSessionData);
 
 	std::string SessionID;
@@ -60,7 +63,9 @@ int main()
 	}
 
 
+	//
 	// Getting the hwid and the input key from the user
+	//
 	std::string License;
 	std::cout << xorstr_("\nYour License --> ");
 	std::cin >> License;
@@ -70,7 +75,9 @@ int main()
 	std::string UserHwid = GrabSID();
 
 
+	//
 	// Login Request
+	//
 	std::string LoginResponse = Authix::Login(License, UserHwid, SessionID);
 
 	bool LoginSuccess;
@@ -105,7 +112,9 @@ int main()
 	}
 
 
+	//
 	// Decrypt Data Returned From Login Request
+	//
 	std::string LoginDecryptedData = Authix::DecryptNextData(LoginData, NewIV);
 
 	int LicenseExpiry;
@@ -123,8 +132,10 @@ int main()
 	}
 
 
+	//
 	// GetVariable Request
-	std::string GetVariableResponse = Authix::GetVariable(xorstr_("wef"), SessionID);
+	//
+	std::string GetVariableResponse = Authix::GetVariable(xorstr_("YourVariableName"), SessionID);
 
 	bool GetVariableSuccess;
 	std::string GetVariableData;
@@ -132,7 +143,7 @@ int main()
 
 	if (GetVariableResponse.length() > 0)
 	{
-		// Here we parse the response to check if fail or not, if not we get the data on a single string since we need to decrypt only xorstr_("data" param
+		// Here we parse the response to check if fail or not, if not we get the data on a single string since we need to decrypt only "data" param
 		json jsonData = json::parse(GetVariableResponse);
 		GetVariableSuccess = jsonData[xorstr_("success")];
 		if (!GetVariableSuccess)
@@ -158,15 +169,21 @@ int main()
 	}
 
 
+	//
 	// Decrypt Data Returned From GetVariable Request and Print the Variable
+	//
 	std::string GetVariableDecryptedData = Authix::DecryptNextData(GetVariableData, NewIV);
 	std::cout << xorstr_("\nYour Variable: ") << GetVariableDecryptedData << std::endl;
 
 
+	// TODO:
+	// Check and print the date/time when the license expire
+	// StreamFile feature
 
-	/*
-	Here Your Code After Login...
-	*/
+
+	//
+	// Here Your Code After Login...
+	//
 	std::cout << xorstr_("\nSuccessfully Logged in!") << std::endl;
 
 	Sleep(-1);
