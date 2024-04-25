@@ -1,12 +1,9 @@
 #include "Authix.hpp"
 #include "Decryption.hpp"
-#include "xorstr.hpp"
 
-
-std::string PanelURL = xorstr_("https://panel.authix.cc/"); //Don't change that
-std::string OwnerUUID = xorstr_("00000000000-0000-0000-0000-000000000000000"); //Can be found on your Dashboard
-std::string AppName = xorstr_("Example"); //The name of your application, can be found on your Dashboard
-std::string AppSecretKey = xorstr_("0000000000000000000000000000000000000000000000000000000000000000"); // AppSecret can be found on your Dashboard
+std::string OwnerUUID = xorstr_("9be44ee9-d7b2-4703-bc7e-cd6e7332e19b");
+std::string AppName = xorstr_("BwPaidTemp");
+std::string AppSecretKey = xorstr_("092add00674a85f9231ee63f3d732e26445bb9a6bace6c35475769956f0e1fd4");
 
 size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::string* output)
 {
@@ -23,8 +20,7 @@ namespace Authix
 		CURL* hnd = curl_easy_init();
 		curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, xorstr_("POST"));
 		curl_easy_setopt(hnd, CURLOPT_WRITEDATA, stdout);
-		auto link = std::format("{}api/start", PanelURL);
-		curl_easy_setopt(hnd, CURLOPT_URL, link.c_str());
+		curl_easy_setopt(hnd, CURLOPT_URL, xorstr_("https://api.authix.cc/start"));
 
 		struct curl_slist* headers = NULL;
 		headers = curl_slist_append(headers, xorstr_("accept: application/json"));
@@ -38,7 +34,7 @@ namespace Authix
 
 		Decryption::init_iv();
 
-		auto command = std::format("{{\"owner_uuid\":\"{}\",\"application\":\"{}\",\"init_iv\":\"{}\"}}", OwnerUUID, AppName, ivKey);
+		std::string command = std::format(("{{\"owner_uuid\":\"{}\",\"application\":\"{}\",\"init_iv\":\"{}\"}}"), OwnerUUID, AppName, ivKey);
 		curl_easy_setopt(hnd, CURLOPT_POSTFIELDS, command.c_str());
 		curl_easy_perform(hnd);
 		
@@ -56,8 +52,7 @@ namespace Authix
 		CURL* hnd = curl_easy_init();
 		curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, xorstr_("POST"));
 		curl_easy_setopt(hnd, CURLOPT_WRITEDATA, stdout);
-		auto link = std::format("{}api/login", PanelURL);
-		curl_easy_setopt(hnd, CURLOPT_URL, link.c_str());
+		curl_easy_setopt(hnd, CURLOPT_URL, xorstr_("https://api.authix.cc/login"));
 
 		struct curl_slist* headers = NULL;
 		headers = curl_slist_append(headers, xorstr_("accept: application/json"));
@@ -70,7 +65,7 @@ namespace Authix
 		curl_easy_setopt(hnd, CURLOPT_WRITEFUNCTION, WriteCallback);
 		curl_easy_setopt(hnd, CURLOPT_WRITEDATA, &response_string);
 
-		auto command = std::format("{{\"license_key\":\"{}\",\"hwid\":\"{}\"}}", License, Hwid);
+		auto command = std::format(("{{\"license_key\":\"{}\",\"hwid\":\"{}\"}}"), License, Hwid);
 		curl_easy_setopt(hnd, CURLOPT_POSTFIELDS, command.c_str());
 		curl_easy_perform(hnd);
 
@@ -81,8 +76,7 @@ namespace Authix
 		CURL* hnd = curl_easy_init();
 		curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, xorstr_("POST"));
 		curl_easy_setopt(hnd, CURLOPT_WRITEDATA, stdout);
-		auto link = std::format("{}api/var", PanelURL);
-		curl_easy_setopt(hnd, CURLOPT_URL, link.c_str());
+		curl_easy_setopt(hnd, CURLOPT_URL, xorstr_("https://api.authix.cc/var"));
 
 		struct curl_slist* headers = NULL;
 		headers = curl_slist_append(headers, xorstr_("accept: application/json"));
@@ -95,7 +89,7 @@ namespace Authix
 		curl_easy_setopt(hnd, CURLOPT_WRITEFUNCTION, WriteCallback);
 		curl_easy_setopt(hnd, CURLOPT_WRITEDATA, &response_string);
 
-		auto command = std::format("{{\"var_name\":\"{}\"}}", VariableName);
+		auto command = std::format(("{{\"var_name\":\"{}\"}}"), VariableName);
 		curl_easy_setopt(hnd, CURLOPT_POSTFIELDS, command.c_str());
 		curl_easy_perform(hnd);
 

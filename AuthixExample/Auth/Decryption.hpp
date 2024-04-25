@@ -34,7 +34,7 @@ namespace Decryption
 			);
 		}
 		catch (CryptoPP::Exception& ex) {
-			MessageBoxA(0, ex.what(), "Authix", MB_ICONERROR);
+			MessageBoxA(0, ex.what(), xorstr_("Authix"), MB_ICONERROR);
 			exit(0);
 		}
 		return cipher_text;
@@ -56,7 +56,7 @@ namespace Decryption
 			);
 		}
 		catch (CryptoPP::Exception& ex) {
-			MessageBoxA(0, "Invalid API/Encryption key", "Authix", MB_ICONERROR);
+			MessageBoxA(0, xorstr_("Invalid API/Encryption key"), xorstr_("Authix"), MB_ICONERROR);
 			exit(0);
 		}
 		return plain_text;
@@ -77,7 +77,7 @@ namespace Decryption
 			);
 		}
 		catch (CryptoPP::Exception& ex) {
-			MessageBoxA(0, ex.what(), "Authix", MB_ICONERROR);
+			MessageBoxA(0, ex.what(), xorstr_("Authix"), MB_ICONERROR);
 			exit(0);
 		}
 
@@ -99,7 +99,7 @@ namespace Decryption
 			);
 		}
 		catch (CryptoPP::Exception& ex) {
-			MessageBoxA(0, ex.what(), "Authix", MB_ICONERROR);
+			MessageBoxA(0, ex.what(), xorstr_("Authix"), MB_ICONERROR);
 			exit(0);
 		}
 
@@ -118,7 +118,7 @@ namespace Decryption
 			);
 		}
 		catch (CryptoPP::Exception& ex) {
-			MessageBoxA(0, ex.what(), "Authix", MB_ICONERROR);
+			MessageBoxA(0, ex.what(), xorstr_("Authix"), MB_ICONERROR);
 			exit(0);
 		}
 
@@ -136,7 +136,7 @@ namespace Decryption
 			);
 		}
 		catch (CryptoPP::Exception& ex) {
-			MessageBoxA(0, ex.what(), "Authix", MB_ICONERROR);
+			MessageBoxA(0, ex.what(), xorstr_("Authix"), MB_ICONERROR);
 			exit(0);
 		}
 
@@ -167,7 +167,7 @@ namespace Decryption
 		}
 		catch (const CryptoPP::Exception& e)
 		{
-			std::cerr << "Exception caught: " << e.what() << std::endl;
+			std::cerr << xorstr_("Exception caught: ") << e.what() << std::endl;
 		}
 
 		return decryptedData;
@@ -182,7 +182,7 @@ namespace Decryption
 		}
 		catch (const CryptoPP::Exception& e)
 		{
-			std::cerr << "Exception caught: " << e.what() << std::endl;
+			std::cerr << xorstr_("Exception caught: ") << e.what() << std::endl;
 		}
 
 		return decryptedData;
@@ -198,7 +198,7 @@ namespace Decryption
 
 	void init_iv()
 	{
-		std::string str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		std::string str = xorstr_("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 		std::string newstr;
 		int pos;
 

@@ -1,6 +1,8 @@
 #ifndef AUTHIX_H
 #define AUTHIX_H
 
+#include "xorstr.hpp"
+
 #include <curl/curl.h>
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
