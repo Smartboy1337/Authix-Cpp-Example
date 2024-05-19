@@ -35,6 +35,7 @@ Authix Example license:
 
 Join our Discord server to report any bugs or share your suggestions promptly: [Discord Link](https://discord.gg/kzeE3EK3Gg) 
 
+With the recent update to our homepage, you can now report bugs or share suggestions without needing to join our Discord server. Just visit our [Roadmap](https://authix.cc/roadmap).
 
 ## How to use
 
@@ -54,3 +55,6 @@ Replace the example data in the file authix.cpp with your information from the d
 
 Tutorial(Old Example but similar):
 https://youtu.be/3RaMe0WluEE
+
+
+Credits to @mhattzzz
