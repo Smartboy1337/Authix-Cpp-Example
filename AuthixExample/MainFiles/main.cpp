@@ -133,6 +133,48 @@ int main()
 
 
 	//
+	// Here Your Code After Login...
+	//
+	std::cout << xorstr_("\nSuccessfully Logged in!\n") << std::endl;
+
+
+	//
+	// Send a LogMessage
+	//
+	std::string LogMessageResponse = Authix::LogMessage(xorstr_("YourMessageHere"), SessionID);
+
+	bool LogMessageSuccess;
+	std::string LogMessageMessage;
+
+	if (LogMessageResponse.length() > 0)
+	{
+		// Here we parse the response to check if fail or not
+		json jsonData = json::parse(LogMessageResponse);
+		LogMessageSuccess = jsonData[xorstr_("success")];
+		if (!LogMessageSuccess)
+		{
+			LogMessageMessage = jsonData[xorstr_("message")];
+			std::cout << xorstr_("\nLogMessageSuccess: ") << std::boolalpha << LogMessageSuccess << std::endl;
+			std::cout << xorstr_("LogMessageMessage: ") << LogMessageMessage << std::endl;
+
+			Sleep(2000);
+			return 3;
+		}
+		else
+		{
+			LogMessageMessage = jsonData[xorstr_("message")];
+			std::cout << xorstr_("LogMessageMessage: ") << LogMessageMessage << std::endl;
+		}
+	}
+	else
+	{
+		std::cout << xorstr_("\nLogMessageResponse is 0") << std::endl;
+		Sleep(2000);
+		return 1;
+	}
+
+
+	//
 	// GetVariable Request
 	//
 	std::string GetVariableResponse = Authix::GetVariable(xorstr_("YourVariableName"), SessionID);
@@ -177,14 +219,9 @@ int main()
 
 
 	// TODO:
-	// Check and print the date/time when the license expire
-	// StreamFile feature
+	// StreamFile/GetFile
+	// Send Webhook Message
 
-
-	//
-	// Here Your Code After Login...
-	//
-	std::cout << xorstr_("\nSuccessfully Logged in!") << std::endl;
 
 	Sleep(-1);
 
