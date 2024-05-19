@@ -14,6 +14,7 @@ namespace Authix
 
 	std::string Login(std::string License, std::string Hwid, std::string SessionID);
 	std::string GetVariable(std::string VariableName, std::string SessionID);
+	std::string LogMessage(std::string Message, std::string SessionID);
 
 	std::string DecryptNextData(std::string Data, std::string NewIV);
 }
