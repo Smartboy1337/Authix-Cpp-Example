@@ -139,6 +139,58 @@ int main()
 
 
 	//
+	// GetFile Request
+	//
+	std::string GetFileResponse = Authix::GetFile(xorstr_("FileNameHere"), SessionID);
+
+	//std::cout << "GetFileResponse: " << GetFileResponse << std::endl;
+
+	bool GetFileSuccess;
+	std::string GetFileData;
+	std::string GetFileMessage;
+
+	if (GetFileResponse.length() > 0)
+	{
+		// Here we parse the response to check if fail or not
+		json jsonData = json::parse(GetFileResponse);
+		GetFileSuccess = jsonData[xorstr_("success")];
+		if (!GetFileSuccess)
+		{
+			GetFileMessage = jsonData[xorstr_("message")];
+			std::cout << xorstr_("\nGetFileSuccess: ") << std::boolalpha << GetFileSuccess << std::endl;
+			std::cout << xorstr_("GetFileMessage: ") << GetFileMessage << std::endl;
+
+			Sleep(2000);
+			return 3;
+		}
+		else
+		{
+			GetFileData = jsonData[xorstr_("data")];
+			GetFileMessage = jsonData[xorstr_("message")];
+			std::cout << xorstr_("GetFileMessage: ") << GetFileMessage << std::endl;
+		}
+	}
+	else
+	{
+		std::cout << xorstr_("\nLogMessageResponse is 0") << std::endl;
+		Sleep(2000);
+		return 1;
+	}
+
+	std::cout << "GetFileData: " << GetFileData << std::endl;
+
+
+	//
+	// Decrypt Data Returned From GetFile Request
+	//
+	std::string GetFileDecryptedData = Authix::DecryptNextData(GetFileData, NewIV);
+
+	std::cout << "GetFileDecryptedData: " << GetFileDecryptedData << std::endl;
+
+	Sleep(-1);
+
+
+	//
 	// Send a LogMessage
 	//
 	std::string LogMessageResponse = Authix::LogMessage(xorstr_("YourMessageHere"), SessionID);
@@ -219,7 +271,6 @@ int main()
 
 
 	// TODO:
-	// StreamFile/GetFile
 	// Send Webhook Message
 
 
