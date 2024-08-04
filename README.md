@@ -1,4 +1,4 @@
----
+
 
 # AuthixCppExample
 
@@ -68,6 +68,5 @@ For a visual guide, refer to this tutorial (Note: it's an older version, but sti
 
 - **[Video Tutorial](https://youtu.be/3RaMe0WluEE)**
 
----
 
 Start securing your applications with Authix today!
