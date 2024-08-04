@@ -13,6 +13,7 @@ namespace Authix
 	std::string DecryptInitData(std::string Data);
 
 	std::string Login(std::string License, std::string Hwid, std::string SessionID);
+	std::string GetFile(std::string FileName, std::string SessionID);
 	std::string GetVariable(std::string VariableName, std::string SessionID);
 	std::string LogMessage(std::string Message, std::string SessionID);
 
