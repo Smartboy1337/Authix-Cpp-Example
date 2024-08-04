@@ -64,9 +64,9 @@ Replace the placeholder data in the `authix.cpp` file with your specific informa
 - **Unzip `Cryptopp.rar`** into `AuthixCppExample-main\AuthixExample\Libs`!
 - **Unzip `Dlls.rar`** into `AuthixCppExample-main\x64\Release`!
 
-For a visual guide, refer to this tutorial (Note: it's an older version, but still relevant):
+For a visual guide, refer to this tutorial:
 
-- **[Video Tutorial](https://youtu.be/3RaMe0WluEE)**
+- **[Video Tutorial](https://youtu.be/ie0mgInYtuo)**
 
 
 Start securing your applications with Authix today!
