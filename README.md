@@ -1,60 +1,73 @@
+---
+
 # AuthixCppExample
-## Authix?
-Authix is a reliable, secure, and easy-to-use authentication service for your applications. Do you want to protect your users' data and application? Do you want to customize your authentication process with innovative and unique features?
 
-If you answered yes to any of these questions, then you need **Authix** - the new authentication service, but better. Authix is a powerful and flexible authentication service that offers you:
+## What is Authix?
 
-- **Security**: Authix uses advanced encryption, hashing, and verification algorithms to ensure the security of your users' credentials and sessions. Authix also provides server-side data integrity with your applications for maximum security.
-- **Easy to integrate**: Authix is designed to be easy to integrate with your existing applications. Authix provides you with a simple and intuitive API, and support to help you get started quickly and easily. Authix also supports multiple platforms, languages, and frameworks, so you can use it with your preferred tools and technologies.
-- **Custom features**: Authix is not just another authentication service. Authix is a creative and innovative authentication service that offers you custom features never seen before. Authix will reveal these features one by one once they are ready, so you can always enjoy the latest and greatest authentication solutions.
-- **Custom solutions**: Authix also offers you custom solutions if you need them. Authix can work with you to create tailor-made authentication services that suit your specific needs and preferences. Authix can help you achieve your authentication goals with ease and efficiency.
+Authix is a cutting-edge authentication service designed to secure your applications with advanced, reliable, and customizable features. If you’re looking to protect your users' data and enhance your application's security, Authix is the solution you need. Here's what Authix offers:
 
-Authix is the authentication service you need to take your applications to the next level. Authix is the authentication service that will make your life easier and more secure.
+- **Top-notch Security**: Authix employs state-of-the-art encryption, hashing, and verification algorithms to safeguard your users' credentials and sessions. It also ensures server-side data integrity, providing maximum security for your applications.
 
-Join our Discord today or visit our website, 
+- **Seamless Integration**: Authix is built for easy integration with your existing systems. With a user-friendly API and support, getting started is quick and hassle-free. Authix is compatible with multiple platforms, languages, and frameworks, allowing you to work with the tools and technologies you prefer.
 
-*Authix - the ultimate authentication service.*
+- **Innovative Custom Features**: Authix stands out by offering unique, innovative authentication features that go beyond standard services. These features will be unveiled gradually, ensuring you always have access to the latest advancements in authentication.
 
-[Discord Link](https://discord.gg/kzeE3EK3Gg) 
+- **Tailored Solutions**: Authix can provide custom solutions tailored to your specific needs. Whether you have unique authentication requirements or preferences, Authix can work with you to achieve your goals efficiently.
 
-[Website Link](https://authix.cc/) 
+Authix is the ultimate tool to elevate your application's security and make your life easier. Get started today and experience the difference with Authix.
+
+Join our community on Discord or visit our website to learn more:
+
+- **[Discord](https://discord.gg/kzeE3EK3Gg)**
+- **[Website](https://authix.cc/)**
 
 ## License
-Authix Example license: 
 
-- You are prohibited from providing the software to third parties as a hosted or managed service, where the service grants users access to any substantial set of the features or functionality of the software.
+When using the Authix example, please adhere to the following licensing terms:
 
-- You are prohibited from altering, disabling, circumventing, or moving the license key functionality in the software, and you may not remove or obscure any functionality in the software that is protected by the license key.
+- **No Third-Party Hosting**: You may not provide the software as a hosted or managed service to third parties, especially if it grants users access to a substantial portion of the software's features or functionality.
 
-- You are prohibited from altering, removing, or obscuring any licensing, copyright, or other notices of the licensor in the software. Any use of the licensor’s trademarks is subject to applicable law.
+- **License Key Integrity**: You are not allowed to alter, disable, circumvent, or remove the license key functionality within the software. Additionally, you may not obscure or remove any features protected by the license key.
 
-- Thank you for adhering to these guidelines. We dedicate considerable effort to the development of Authix and do not tolerate infringement of our copyright.
+- **Preservation of Notices**: Do not alter, remove, or obscure any licensing, copyright, or other notices within the software. The use of Authix’s trademarks must comply with applicable laws.
 
+Your compliance with these guidelines is crucial, as considerable effort has gone into developing Authix. We do not tolerate copyright infringement.
 
-## Bugs/Suggestion's
+## Reporting Bugs and Suggestions
 
-Join our Discord server to report any bugs or share your suggestions promptly: [Discord Link](https://discord.gg/kzeE3EK3Gg) 
+If you encounter any bugs or have suggestions to improve Authix, please join our Discord server and let us know:
 
-With the recent update to our homepage, you can now report bugs or share suggestions without needing to join our Discord server. Just visit our [Roadmap](https://authix.cc/roadmap).
+- **[Discord](https://discord.gg/kzeE3EK3Gg)**
 
-## How to use
+## Getting Started with AuthixCppExample
 
-Go to your dash and find this information:
+To begin, gather the following information from your dashboard:
 
 ```cmake
-std::string PanelURL = xorstr_("https://panel.authix.cc/"); //Don't change that
-std::string OwnerUUID = xorstr_("00000000000-0000-0000-0000-000000000000000"); //Can be found on your Dashboard
-std::string AppName = xorstr_("Example"); //The name of your application, can be found on your Dashboard
-std::string AppSecretKey = xorstr_("0000000000000000000000000000000000000000000000000000000000000000"); // AppSecret can be found on your Dashboard
+std::string OwnerUUID = xorstr_("00000000000-0000-0000-0000-000000000000000"); // Found on your Dashboard
+std::string AppName = xorstr_("Example"); // Your application's name, found on your Dashboard
+std::string AppSecretKey = xorstr_("0000000000000000000000000000000000000000000000000000000000000000"); // AppSecret, found on your Dashboard
 ```
 
-Replace the example data in the file authix.cpp with your information from the dashboard.
+Replace the placeholder data in the `authix.cpp` file with your specific information from the dashboard.
 
-### UNZIP Cryptopp.rar IN AuthixCppExample-main\AuthixExample\Libs !!!
-### UNZIP Dlls.rar IN AuthixCppExample-main\x64\Release !!!
+### Using File Stream
 
-Tutorial(Old Example but similar):
-https://youtu.be/3RaMe0WluEE
+1. Drag your file into `Encrypter.exe` (located in the x64 folder).
+2. Enter your encryption key and IV key (provided in your dashboard) in the console.
+3. Check your download folder for the encrypted file.
+4. Upload the encrypted file to a direct download website and post the URL in the dashboard.
+5. In the `main.cpp`, use the filename as defined in the dashboard, and everything should work smoothly.
 
+### Important Steps
 
-Credits to @mhattzzz
+- **Unzip `Cryptopp.rar`** into `AuthixCppExample-main\AuthixExample\Libs`!
+- **Unzip `Dlls.rar`** into `AuthixCppExample-main\x64\Release`!
+
+For a visual guide, refer to this tutorial (Note: it's an older version, but still relevant):
+
+- **[Video Tutorial](https://youtu.be/3RaMe0WluEE)**
+
+---
+
+Start securing your applications with Authix today!
