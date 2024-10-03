@@ -16,6 +16,14 @@ namespace Authix
 	std::string GetFile(std::string FileName, std::string SessionID);
 	std::string GetVariable(std::string VariableName, std::string SessionID);
 	std::string LogMessage(std::string Message, std::string SessionID);
+    std::string SendWebhook(
+        const std::string& webhookUrl,
+        const std::string& message,
+        const std::string& sessionID = "",
+        const std::string& title = "",
+        const std::string& description = "",
+        int color = 0
+    );
 
 	std::string DecryptNextData(std::string Data, std::string NewIV);
 }
